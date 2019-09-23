@@ -1,0 +1,20 @@
+.header {
+    background-color: $color-primary-light;
+    height: 7rem;
+    display: flex;
+    box-shadow: $shadow-light;
+}
+
+.content {
+    display: flex;
+}
+
+.sidebar {
+    background-color: $color-primary-light;
+    display: flex;
+    flex: 0 0 18%;
+
+    height: 100vh
+}
+
+
