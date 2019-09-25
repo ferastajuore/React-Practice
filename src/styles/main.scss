@@ -4,5 +4,10 @@
 @import "abstracts/variables.scss";
 
 // BASE
+@import "base/animations";
 @import "base/app.scss";
 @import "base/base.scss";
+
+// LAYOUT
+@import "layout/header";
+@import "layout/navigation";

@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# fontawesome
+/public/fontawesome
+
 # testing
 /coverage
 
