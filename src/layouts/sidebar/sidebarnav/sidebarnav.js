@@ -7,7 +7,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import SettingsIcon from '@material-ui/icons/Settings';
 
-// import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Sidebarnav = () => {
 
@@ -54,12 +54,11 @@ const Sidebarnav = () => {
             <ul className="side-nav">
                 {
                     pages.map((page, index) => (
-                        <li key={index} className="side-nav__item">
-                            
-                            <a href={page.href} className="side-nav__link">
+                        <li key={index} className="side-nav__item">                          
+                            <NavLink to={page.href} className="side-nav__link" activeClassName="side-nav__link--active">
                                 <span className="side-nav__icon">{page.icon}</span>
                                 <span>{page.title}</span>
-                            </a>
+                            </NavLink>
                         </li>
                     ))
                 }

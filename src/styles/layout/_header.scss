@@ -1,5 +1,5 @@
 .logo {
-    flex: 0 0 18%;
+    flex: 0 0 19%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,6 @@
 
     &__photo {
         height: 5rem;
-        margin: .5rem;
         animation: App-logo-spin infinite 15s linear;
     }
     
@@ -17,6 +16,8 @@
         font-weight: 300;
         text-transform: uppercase;
         color: #FFF;
+        letter-spacing: 3px;
+        margin-right: .7rem;
     }
 }
 
