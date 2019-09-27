@@ -13,12 +13,12 @@ const Routeing = () => {
         <div className="content">
             <Sidebar/>
             <Switch>
-                    /* Redirect Page */
+                    {/* Redirect Page */}
             <Redirect exact from="/" to="/users" />
-                    /* Component USERS */
+                    {/* Component USERS */}
             <Route exact path="/users" component={Users} />
             <Route  path="/users/create" component={Create} />
-                    /* Component NOT FOUND 404!! */
+                    {/* Component NOT FOUND 404!! */}
             <Route component={NotFound} />
             </Switch>
         </div>

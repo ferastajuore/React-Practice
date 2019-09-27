@@ -14,7 +14,7 @@ const Notification = () => {
             </div>
 
             <div className="user-nav__user">
-                <img src="images/avatar/cat.jpg" alt="User photo" className="user-nav__user-photo"/>
+                <img src="images/avatar/cat.jpg" alt="avatar" className="user-nav__user-photo"/>
                 <span className="user-nav__user-name">Feras Tajuore</span>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import List from './list';
 
 const Users = ({match}) => {
 
@@ -11,6 +12,7 @@ const Users = ({match}) => {
     return (
         <div style={sty}>
             Components Users
+            <List/>
             <Link to={`${match.url}/create`}>Create</Link>
         </div>
     )
