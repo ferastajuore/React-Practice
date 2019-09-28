@@ -13,7 +13,9 @@ const Users = ({match}) => {
         <div style={sty}>
             Components Users
             <List/>
-            <Link to={`${match.url}/create`}>Create</Link>
+            <Link to={`${match.url}/create`}>
+                <button>Create</button>
+            </Link>
         </div>
     )
 }

@@ -1,17 +1,17 @@
 import uuid from 'uuid';
 
-// ADD_USERS
+// ADD_USER
 export const addUsers = ({
-    username = '',
+    name = '',
     email = '',
     location = '',
-    phone = '', 
-    createdAt = undefined
+    phone = 0, 
+    createdAt = 0
 } = {}) => ({
-    type: 'ADD_USERS',
+    type: 'ADD_USER',
     users: {
         id: uuid(),
-        username,
+        name,
         email,
         location,
         phone,
@@ -20,16 +20,16 @@ export const addUsers = ({
 });
 
 
-// DELETE_USRES
+// DELETE_USER
 export const deletUsers = ({id} = {}) => ({
-    type: 'DELETE_USERS',
+    type: 'DELETE_USER',
     id
 });
 
 
-// EDIT_USRES
+// EDIT_USER
 export const editUsers = (id, updates) => ({
-    type: 'EDIT_USRES',
+    type: 'EDIT_USER',
     id,
     updates
 });

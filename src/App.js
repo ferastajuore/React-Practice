@@ -12,14 +12,22 @@ import { addUsers } from './action/users/usres';
 const store = configureStore();
 
 // Dispatch For Testing
-store.dispatch(addUsers({
-    id: 1,
-    username: 'nedal',
-    email: 'nedal@info.com',
+console.log( store.dispatch(addUsers({
+    name: 'Mona',
+    email: 'Mona@info.com',
     location: 'libya',
     phone: 123000,
     createdAt: 123456
-}));
+})));
+
+console.log(store.dispatch(addUsers({
+    id: 1,
+    name: 'feras',
+    email: 'feras@info.com',
+    location: 'libya',
+    phone: 123000,
+    createdAt: 123456
+})));
 
 const App = () => (
     <div className="app">
