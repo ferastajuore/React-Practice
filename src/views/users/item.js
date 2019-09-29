@@ -1,7 +1,19 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Item = ({id,name, email, location, phone, createdAt}) => {
+// Action
+import { deletUsers } from '../../action/users/usres';
+
+const Item = ({id,name, email, location, phone, createdAt, deleteUser}) => {
+
+    const heandleDelete = () => {
+        setTimeout(() => {
+            deleteUser(id);
+        }, 1000);
+    };
+
     return (
         <div>
             {id}
@@ -10,6 +22,10 @@ const Item = ({id,name, email, location, phone, createdAt}) => {
             <p>{location}</p>
             <p>{phone}</p>
             <p>{moment(createdAt).format('MM/D/YYYY ')}</p>
+            <Link to={`/users/edit/${id}`} >
+                <button>Edit</button>
+            </Link>
+            <button onClick={heandleDelete}>Delete</button>
             <hr/>
         </div>
     )
@@ -40,4 +56,10 @@ const Item = ({id,name, email, location, phone, createdAt}) => {
 // </tbody>
 // </table>
 
-export default Item
+
+// Dispacth
+const mapDispatchToProps = (dispatch) => ({
+    deleteUser: (id) => dispatch(deletUsers({id}))
+});
+
+export default connect(undefined, mapDispatchToProps)(Item);

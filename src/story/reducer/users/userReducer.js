@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import data from './data/data';
 
-const userReducer = (state = [], action) => {
+
+const userReducer = (state = data, action) => {
     switch (action.type) {
         case 'ADD_USER':
             return _.concat(state, action.users);
