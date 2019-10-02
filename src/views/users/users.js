@@ -3,18 +3,12 @@ import { Link } from 'react-router-dom';
 import List from './list';
 
 const Users = ({match}) => {
-
-    const sty = {
-        fontSize: '3rem',
-        color: '#0F0'
-    }
-
     return (
-        <div style={sty}>
-            Components Users
+        <div className="users">
+            <h2 className="heading-secondary">Components Users</h2>
             <List/>
             <Link to={`${match.url}/create`}>
-                <button>Create</button>
+                <button className="btn btn--info">Create</button>
             </Link>
         </div>
     )

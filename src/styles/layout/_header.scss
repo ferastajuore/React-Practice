@@ -124,3 +124,47 @@
         font-weight: 300;
     }
 }
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    &__header {
+        font-size: 7rem;
+        font-weight: 700;
+        color: #FFF;
+        
+    }
+
+    &__paragraph {
+        font-size: 2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-Grey-dark-3;
+        margin-bottom: 2.5rem;
+    }
+
+    &__link:link,
+    &__link:visited {
+        font-size: 2rem;
+        font-weight: 300;
+        text-decoration: none;
+        padding: 1.5rem 3rem;
+        display: inline-block;
+        color: #FFF;
+        background-color: $color-primary-light;
+        border-radius: 1rem;
+        position: relative;
+        transition: all .2s;
+        
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 1rem 2rem rgba(0,0,0, .5);
+        }
+    }
+}

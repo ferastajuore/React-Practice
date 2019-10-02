@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Icon from '@material-ui/core/Icon';
 
 // Action
 import { deletUsers } from '../../action/users/usres';
@@ -15,46 +16,21 @@ const Item = ({id,name, email, location, phone, createdAt, deleteUser}) => {
     };
 
     return (
-        <div>
-            {id}
-            <p>{name}</p>
-            <p>{email}</p>
-            <p>{location}</p>
-            <p>{phone}</p>
-            <p>{moment(createdAt).format('MM/D/YYYY ')}</p>
+        <tbody className="table__tbody">
+        <tr className="table__row">
+            <td className="table__body">{name}</td>
+            <td className="table__body">{email}</td>
+            <td className="table__body">{location}</td>
+            <td className="table__body">{phone}</td>
+            <td className="table__body">{moment(createdAt).format('MM/D/YYYY ')}</td>
             <Link to={`/users/edit/${id}`} >
-                <button>Edit</button>
+                <Icon className="fas fa-user-edit table__icon table__icon-edit" />
             </Link>
-            <button onClick={heandleDelete}>Delete</button>
-            <hr/>
-        </div>
+            <Icon onClick={heandleDelete} className="fas fa-trash-alt table__icon table__icon-delete" />
+        </tr>
+        </tbody>
     )
 }
-
-
-
-// <table border='1'>
-// <tbody>
-// <tr>
-// <td>avatar</td>
-// <td>name</td>
-// <td>email</td>
-// <td>location</td>
-// <td>phone</td>
-// <td>create</td>
-// </tr>
-// </tbody>
-// <tbody>
-// <tr>
-// <td>###</td>
-// <td>{name}</td>
-// <td>{email}</td>
-// <td>{location}</td>
-// <td>{phone}</td>
-// <td>{createdAt}</td>
-// </tr>
-// </tbody>
-// </table>
 
 
 // Dispacth

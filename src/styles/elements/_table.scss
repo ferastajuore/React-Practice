@@ -1,0 +1,77 @@
+.table {
+    text-transform: capitalize;
+    width: 100%;
+    display: table;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 5rem;
+    position: relative;
+
+    &__thead {
+        display: table-header-group;
+        background-color: $color-Grey-light-5;
+    }
+
+    &__row {
+        color: inherit;
+        display: table-row;
+        outline: none;
+        vertical-align: middle;
+
+        &:hover {
+            background-color: $color-Grey-light-4;
+        }
+    }
+
+    &__head {
+        color: #546e7a;
+        font-size: $default-fonts;
+        font-weight: 500;
+        line-height: 1.3125rem;
+        padding: 2rem 3rem;
+        border-bottom: 1px solid $color-Grey-light-3;
+        text-align: left;
+    }
+
+    &__tbody{
+        display: table-row-group;
+        background-color: $color-Grey-light-3;
+    }
+
+    &__body{
+        font-size: 2rem;
+        font-weight: 300;
+        width: 5rem;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    &__icon {
+        padding: 0 2rem;
+        position: relative;
+        top: 2.5rem;
+        left: 2rem;
+        cursor: pointer;
+
+        &-edit {
+            color: $color-green-light;
+        }
+
+        &-delete {
+            color: $color-red-light;
+        }
+    }
+
+    &__massage-user {
+        font-size: $default-fonts;
+        text-transform: uppercase;
+        background-color: #FFF;
+        display: flex;
+        justify-content: center;
+        padding: 3rem;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+    }
+
+}

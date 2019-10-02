@@ -1,15 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
-    const sty = {
-        fontSize: '3rem',
-        color: '#0F0'
-    }
     return (
-        <div style={sty}>
-            NOTFOUND 404!!
+        <div className="not-found">
+            <h3 className="not-found__header">404</h3>
+            <p className="not-found__paragraph">Not Found</p>
+            <Link to="/users" className="not-found__link">Home</Link>
         </div>
     )
 }
 
-export default NotFound
+export default NotFound;

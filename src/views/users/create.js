@@ -42,7 +42,7 @@ const Create = props => {
             <h2 className="heading-secondary">Create Users</h2>
             <form className="form" onSubmit={handleSubmit}>
                 <div className="form__error">{user.error && user.error}</div>
-                <div>
+                <div className="form__group">
                     <label form="name" className="form__label">name</label>
                     <input 
                         type="text" 
@@ -55,7 +55,7 @@ const Create = props => {
                         required
                     />
                 </div>
-                <div>
+                <div className="form__group">
                     <label form="email" className="form__label">Email</label>
                     <input 
                         type="email" 
@@ -68,7 +68,7 @@ const Create = props => {
                         required
                     />
                 </div>
-                <div>
+                <div className="form__group">
                     <label form="location" className="form__label">Location</label>
                     <input 
                         type="text" 
@@ -81,7 +81,7 @@ const Create = props => {
                         required
                     />
                 </div>
-                <div>
+                <div className="form__group">
                     <label form="phone" className="form__label">Phone</label>
                     <input 
                         type="text" 
@@ -94,8 +94,8 @@ const Create = props => {
                         required
                     />
                 </div>
-                <div>
-                    <button className="btn btn__form">Add</button>
+                <div className="form__group">
+                    <button className="btn btn--info">Add</button>
                 </div>
             </form>
         </div>
