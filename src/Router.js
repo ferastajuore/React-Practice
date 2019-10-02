@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route , Redirect } from 'react-router-dom';
+
 /* component Sidebar */
 import { Sidebar } from './layouts';
 /* Folder Views */
