@@ -1,52 +1,36 @@
-import React, { useState } from 'react';
-import moment  from 'moment';
+import React from 'react';
 import { connect } from 'react-redux';
-
-// Action 
-import { addUsers } from '../../action/users/usres';
+import PropTypes from 'prop-types'
 
 
+import Aux from '../../hoc/Aux';    // hoc - aux
+import { addUsers } from '../../action/users/usres';    // Action 
+import { useForm } from './useForm';
+
+
+/**
+ * Componet User - Create
+ */
 const Create = props => {
 
-    const [user, setUser] = useState({
-        name: '',
-        email: '',
-        location: '',
-        phone: '',
-        createdAt: moment(),
-        error: ''
-    });
+    const { handleChange, handleSubmit, user, errors, loading, isSubmit } = useForm(submit, props);
 
-    const handleChange = e => {
-        const {name, value} = e.target;
-        setUser({...user, [name]: value});
-    };
-
-    const handleSubmit = e => {
-        e.preventDefault();
-
-        if(!user.name || !user.email || !user.location || !user.phone) {
-            // Validation inputs
-            setUser({...user, error: 'Please complete forms'});
-        }else {
-            // Send Data
-            props.addUser(user);
-            setTimeout(() => {
-                props.history.push('/users');
-            }, 2000);
-        }
-    };
+    function submit() {
+        props.addUser(user);
+        setTimeout(() => {
+            props.history.push('/users');
+        }, 2000);
+    }
 
     return (
-        <div>
+        <Aux>
+            {loading && <p>Loading...!</p>}
             <h2 className="heading-secondary">Create Users</h2>
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="form__error">{user.error && user.error}</div>
+            <form className="form" onSubmit={handleSubmit} noValidate>
                 <div className="form__group">
                     <label form="name" className="form__label">name</label>
                     <input 
                         type="text" 
-                        id="name" 
                         name="name" 
                         value={user.name} 
                         onChange={handleChange} 
@@ -54,12 +38,12 @@ const Create = props => {
                         className="form__input"
                         required
                     />
+                    {errors.name && <span className="form__error">{errors.name}</span>}
                 </div>
                 <div className="form__group">
                     <label form="email" className="form__label">Email</label>
                     <input 
                         type="email" 
-                        id="email" 
                         name="email" 
                         value={user.email} 
                         onChange={handleChange}  
@@ -67,12 +51,12 @@ const Create = props => {
                         className="form__input"
                         required
                     />
+                    {errors.email && <span className="form__error">{errors.email}</span>}
                 </div>
                 <div className="form__group">
                     <label form="location" className="form__label">Location</label>
                     <input 
                         type="text" 
-                        id="location" 
                         name="location" 
                         value={user.location} 
                         onChange={handleChange}  
@@ -80,12 +64,12 @@ const Create = props => {
                         className="form__input"
                         required
                     />
+                    {errors.location && <span className="form__error">{errors.location}</span>}
                 </div>
                 <div className="form__group">
                     <label form="phone" className="form__label">Phone</label>
                     <input 
                         type="text" 
-                        id="phone" 
                         name="phone" 
                         value={user.phone} 
                         onChange={handleChange}  
@@ -93,19 +77,35 @@ const Create = props => {
                         className="form__input"
                         required
                     />
+                    {errors.phone && <span className="form__error">{errors.phone}</span>}
                 </div>
                 <div className="form__group">
-                    <button className="btn btn--info">Add</button>
+                    <button className="btn btn--info" disabled={!isSubmit}>Add</button>
                 </div>
             </form>
-        </div>
+        </Aux>
     )
 };
 
 
-// Dispatch
+/**     Dispatch
+ * 
+ * @param {*} dispatch 
+ */
 const mapDispatchToProps = dispatch => ({
     addUser: (user) => dispatch(addUsers(user))
 });
+
+
+/**
+ * Validate props
+ */
+Create.propType = {
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    phone: PropTypes.number.isRequired,
+    createdAt: PropTypes.number.isRequired
+}
 
 export default connect(undefined, mapDispatchToProps)(Create);

@@ -1,53 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import moment  from 'moment';
-
-// Action 
-import { editUsers } from '../../action/users/usres';
+import PropTypes from 'prop-types'
 
 
+import Aux from '../../hoc/Aux';    // hoc - aux
+import { editUsers } from '../../action/users/usres';   // Action 
+import { useForm } from './useForm';
+
+
+/** 
+ * Componet User - Edit
+ */
 const Edit = props => {
-    const [user, setUser] = useState({
-        id: props.user.id,
-        name: props.user.name,
-        email: props.user.email,
-        location: props.user.location,
-        phone: props.user.phone,
-        createdAt: moment(props.user.createdAt),
-        error: ''
-    });
 
-    const handleChange = e => {
-        const {name, value} = e.target;
-        setUser({...user, [name]: value});
-    };
+    const { handleChange, handleSubmit, user, errors, loading, isSubmit } = useForm(submit, props);
 
-    const handleSubmit = e => {
-        e.preventDefault();
-
-        if(!user.name || !user.email || !user.location || !user.phone) {
-            // Validation inputs
-            setUser({...user, error: 'Please complete forms'});
-        }else {
-            // Send Data
-            props.updateUser(user.id, user);
-            setTimeout(() => {
-                props.history.push('/users');
-            }, 2000);
-        }
-    };
+    function submit() {
+        props.updateUser(user.id, user);
+        setTimeout(() => {
+            props.history.push('/users');
+        }, 2000);
+    }
 
     return (
-        <div>
+        <Aux>
+            {loading && <p>Loading...!</p>}
             <h2 className="heading-secondary">Edit Users</h2>
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="form__error">{user.error && user.error}</div>
+            <form className="form" onSubmit={handleSubmit} noValidate>
                 <div className="form__group">
                     <label form="name" className="form__label">name</label>
                     <input 
                         type="text" 
-                        id="name" 
                         name="name" 
                         value={user.name} 
                         onChange={handleChange} 
@@ -55,12 +39,12 @@ const Edit = props => {
                         className="form__input"
                         required
                     />
+                    {errors.name && <span className="form__error">{errors.name}</span>}
                 </div>
                 <div className="form__group">
                     <label form="email" className="form__label">Email</label>
                     <input 
                         type="email" 
-                        id="email" 
                         name="email" 
                         value={user.email} 
                         onChange={handleChange}  
@@ -68,12 +52,12 @@ const Edit = props => {
                         className="form__input"
                         required
                     />
+                    {errors.email && <span className="form__error">{errors.email}</span>}
                 </div>
                 <div className="form__group">
                     <label form="location" className="form__label">Location</label>
                     <input 
                         type="text" 
-                        id="location" 
                         name="location" 
                         value={user.location} 
                         onChange={handleChange}  
@@ -81,12 +65,12 @@ const Edit = props => {
                         className="form__input"
                         required
                     />
+                    {errors.location && <span className="form__error">{errors.location}</span>}
                 </div>
                 <div className="form__group">
                     <label form="phone" className="form__label">Phone</label>
                     <input 
                         type="text" 
-                        id="phone" 
                         name="phone" 
                         value={user.phone} 
                         onChange={handleChange}  
@@ -94,24 +78,45 @@ const Edit = props => {
                         className="form__input"
                         required
                     />
+                    {errors.phone && <span className="form__error">{errors.phone}</span>}
                 </div>
                 <div className="form__group">
-                    <button className="btn btn--info">Add</button>
+                    <button className="btn btn--info" disabled={!isSubmit}>Add</button>
                 </div>
             </form>
-        </div>
+        </Aux>
     )
 };
 
-// States & Props
+
+/**  States & Props
+ * 
+ * @param {*} state 
+ * @param {*} props 
+ */
 const mapStateToProps = (state, props) => ({
     user: _.find(state.users, (users) =>  users.id === props.match.params.id)
 });
 
 
-// Dispatch
+/**     Dispatch
+ * 
+ * @param {*} dispatch 
+ */
 const mapDispatchToProps = dispatch => ({
     updateUser: (id, user) => dispatch(editUsers(id, user))
 });
+
+
+/**
+ * Validate props
+ */
+Edit.propType = {
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    phone: PropTypes.number.isRequired,
+    createdAt: PropTypes.number.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Edit);

@@ -4,23 +4,18 @@
     flex-direction: column;
     align-items: center;
 
-    &__group:not(:last-child) {
-        margin-bottom: 2rem;
+    &__group {
+        margin-bottom: 1.5rem;
     }
 
     &__error {
-        // font-size: 1.3rem;
-        // font-weight: 700;
-        // text-align: center;
-        // margin: 2rem;
-        // border-radius: 5px;
-        // display: block;
-        // text-transform: uppercase;
-        // color: #FFF;
-        // padding: 1.5rem 2rem;
-        // background-color: #f44336;
-        // position: relative;
-        // left: -1rem;
+        font-size: inherit;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 1rem;
+        display: block;
+        text-transform: uppercase;
+        color: $color-red-light;
     }
 
     &__label {

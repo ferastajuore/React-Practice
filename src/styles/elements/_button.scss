@@ -6,10 +6,10 @@
         font-size: $default-fonts;
         text-transform: uppercase;
         display: inline-block;
-        color: #FFF;
+        color: #262626;
         padding: 1.5rem 4rem;
         border-radius: 10rem;
-        margin: 5rem;
+        margin: 3rem;
         cursor: pointer;
         position: relative;
         transition: all .2s;
@@ -32,10 +32,10 @@
     }
 
     &--info {
-        background-color: $color-header-dark;
+        background-color: $color-Grey-light-4;
 
         &::after {
-            background-color: #7986CB;
+            background-color: $color-Grey-light-1;
         }
     }
 
@@ -50,6 +50,12 @@
         left: 0;
         z-index: -1;
         transition: all .4s;
-	}
+    }
+    
+    &:disabled {
+        color: $color-Grey-light-4;
+        background-color: #FFF;
+        cursor: not-allowed;
+    }
 }
 
