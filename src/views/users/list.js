@@ -1,12 +1,15 @@
 import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
+
+
 import Items from './item';
+import Aux from '../../hoc/Aux';
 
 
 const List = ({users}) => {
     return (
-        <div>
+        <Aux>
             <table className="table">
                 <thead className="table__thead">
                     <tr className="table__row">
@@ -20,7 +23,7 @@ const List = ({users}) => {
                 </thead>
                 
                 {
-                    users.length < 0 ? (
+                    users.length === 0 ? (
                         <tbody>
                             <tr>
                                 <td className = "table__massage-user" > No users to show </td>
@@ -33,7 +36,7 @@ const List = ({users}) => {
                     )
                 }
             </table>
-        </div>
+        </Aux>
     )
 };
 

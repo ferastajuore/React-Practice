@@ -1,5 +1,6 @@
 import React from 'react';
-import Icon from '@material-ui/core/Icon';
+import { faComments, faBell } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Avatar from '../../assets/images/avatar/cat.jpg';
 
@@ -7,13 +8,12 @@ const Notification = () => {
     return (
         <div className="user-nav">
             <div className="user-nav__icon-box">
-                <Icon className="fas fa-comments user-nav__icon" fontSize="large"/>
+                <FontAwesomeIcon className="user-nav__icon" icon={faComments} size="2x" />
                 <span className="user-nav__notification">7</span>
             </div>
 
             <div className="user-nav__icon-box">
-                <i ></i>
-                <Icon className="fas fa-bell fa-2x user-nav__icon" fontSize="large"/>
+                <FontAwesomeIcon className="user-nav__icon" icon={faBell} size="2x" />
                 <span className="user-nav__notification">13</span>
             </div>
 
@@ -25,4 +25,4 @@ const Notification = () => {
     )
 };
 
-export default Notification
+export default Notification;
