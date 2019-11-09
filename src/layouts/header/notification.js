@@ -1,6 +1,8 @@
 import React from 'react';
 import Icon from '@material-ui/core/Icon';
 
+import Avatar from '../../assets/images/avatar/cat.jpg';
+
 const Notification = () => {
     return (
         <div className="user-nav">
@@ -16,7 +18,7 @@ const Notification = () => {
             </div>
 
             <div className="user-nav__user">
-                <img src="images/avatar/cat.jpg" alt="avatar" className="user-nav__user-photo"/>
+                <img src={Avatar} alt="avatar" className="user-nav__user-photo"/>
                 <span className="user-nav__user-name">Feras Tajuore</span>
             </div>
         </div>
