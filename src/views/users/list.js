@@ -20,8 +20,12 @@ const List = ({users}) => {
                 </thead>
                 
                 {
-                    users.length === 0 ? (
-                        <p className = "table__massage-user" > No users to show </p>
+                    users.length < 0 ? (
+                        <tbody>
+                            <tr>
+                                <td className = "table__massage-user" > No users to show </td>
+                            </tr>
+                        </tbody>
                     ) :(
                         _.map(users,(user, index) => (
                             <Items key={index} {...user}/>
@@ -33,8 +37,15 @@ const List = ({users}) => {
     )
 };
 
+/**  States & Props
+ * 
+ * @param {*} state 
+ * @param {*} props 
+ */
+
 const mapStateToProps = (state, props) => ({
     users: state.users
 });
+
 
 export default connect(mapStateToProps)(List);

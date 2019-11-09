@@ -23,10 +23,12 @@ const Item = ({id,name, email, location, phone, createdAt, deleteUser}) => {
             <td className="table__body">{location}</td>
             <td className="table__body">{phone}</td>
             <td className="table__body">{moment(createdAt).format('MM/D/YYYY ')}</td>
-            <Link to={`/users/edit/${id}`} >
-                <Icon className="fas fa-user-edit table__icon table__icon-edit" />
-            </Link>
-            <Icon onClick={heandleDelete} className="fas fa-trash-alt table__icon table__icon-delete" />
+            <td className="table__body">
+                <Link to={`/users/edit/${id}`} >
+                    <Icon className="fas fa-user-edit table__icon table__icon-edit" />
+                </Link>
+                <Icon onClick={heandleDelete} className="fas fa-trash-alt table__icon table__icon-delete" />
+            </td>
         </tr>
         </tbody>
     )
