@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import { faUserEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-// Action
-import { deletUsers } from '../../action/users/usres';
+import { deletUsers } from '../../action/users/usres';  // Action
 
 const Item = ({id,name, email, location, phone, createdAt, deleteUser}) => {
 
     const heandleDelete = () => {
+        // Delete Data
         setTimeout(() => {
             deleteUser(id);
         }, 1000);

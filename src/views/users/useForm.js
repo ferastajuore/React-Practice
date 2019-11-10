@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import moment from 'moment';
-import validate from '../../components/validation/userValidated/validate';
 
+import validate from '../../components/validation/userValidated/validate';
+import axios from '../../API/database/database';
 
 export const useForm = (callback, props) => {
     const [user, setUser] = useState({
@@ -33,6 +34,22 @@ export const useForm = (callback, props) => {
             setLoading(true);
 
             // Send data to firebase
+            const data = {
+                name: user.name,
+                email: user.email,
+                location: user.location,
+                phone: user.phone,
+                createdAt: user.createdAt
+            }
+            const postData = async () => {
+                try {
+                    const result = await axios.post('/users.json', data);
+                    console.log(result)
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+            postData();
         }
     }, [errors])
 
