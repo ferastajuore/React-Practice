@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import Aux from '../../hoc/Aux';    // hoc - aux
 import { addUsers } from '../../action/users/usres';    // Action 
 import { useForm } from './useForm';
-
+import { Spinner } from '../../components/UI';
 
 /**
  * Componet User - Create
@@ -19,12 +19,12 @@ const Create = props => {
         props.addUser(user);
         setTimeout(() => {
             props.history.push('/users');
-        }, 2000);
+        }, 4000);
     }
 
     return (
         <Aux>
-            {loading && <p>Loading...!</p>}
+            {loading && <Spinner/>}
             <h2 className="heading-secondary">Create Users</h2>
             <form className="form" onSubmit={handleSubmit} noValidate>
                 <div className="form__group">

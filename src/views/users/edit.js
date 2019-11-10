@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import Aux from '../../hoc/Aux';    // hoc - aux
 import { editUsers } from '../../action/users/usres';   // Action 
 import { useForm } from './useForm';
-
+import { Spinner } from '../../components/UI';
 
 /** 
  * Componet User - Edit
@@ -20,12 +20,12 @@ const Edit = props => {
         props.updateUser(user.id, user);
         setTimeout(() => {
             props.history.push('/users');
-        }, 2000);
+        }, 3000);
     }
 
     return (
         <Aux>
-            {loading && <p>Loading...!</p>}
+            {loading && <Spinner/>}
             <h2 className="heading-secondary">Edit Users</h2>
             <form className="form" onSubmit={handleSubmit} noValidate>
                 <div className="form__group">
